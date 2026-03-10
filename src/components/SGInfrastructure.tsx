@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { Building2, HardHat, Zap, Settings, Mail } from 'lucide-react'
 import { INFRASTRUCTURE } from '@/lib/constants'
 
@@ -57,6 +58,16 @@ export default function SGInfrastructure() {
             Building world-class infrastructure across India with precision engineering, quality
             materials, and an unwavering commitment to safety and sustainability.
           </p>
+        </div>
+
+        {/* Banner Image */}
+        <div className="mb-12 relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
+          <Image
+            src="https://static.wixstatic.com/media/c837a6_a656204e75b84246a3f517833decf462~mv2.jpg/v1/fill/w_480,h_320,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-157284152.jpg"
+            alt="SG Infrastructure"
+            fill
+            className="object-cover"
+          />
         </div>
 
         {/* Service Cards */}
