@@ -1,0 +1,327 @@
+'use client'
+
+import { useEffect, useRef, useState, FormEvent } from 'react'
+import { Phone, Mail, MapPin, Send, CheckCircle } from 'lucide-react'
+import { COMPANY } from '@/lib/constants'
+
+export default function Contact() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: 'General',
+    message: '',
+  })
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {}
+    if (!form.name.trim()) newErrors.name = 'Name is required'
+    if (!form.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = 'Please enter a valid email'
+    }
+    if (!form.message.trim()) newErrors.message = 'Message is required'
+    return newErrors
+  }
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    const newErrors = validate()
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      return
+    }
+    setErrors({})
+    // In a real app, this would send to an API
+    setSubmitted(true)
+  }
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }))
+    }
+  }
+
+  return (
+    <section
+      id="contact"
+      ref={sectionRef}
+      className={`py-20 lg:py-28 bg-white transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+      aria-label="Contact SG Group"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-3">
+            Get In Touch
+          </p>
+          <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal mb-4 gold-underline gold-underline-center">
+            Contact Us
+          </h2>
+          <p className="font-inter text-medium-gray text-base max-w-2xl mx-auto mt-6 leading-relaxed">
+            Have a project in mind or need our services? Reach out to us and we&apos;ll get back to you
+            within 24 hours.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left: Contact Form */}
+          <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center h-full text-center py-12">
+                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-5">
+                  <CheckCircle size={32} className="text-gold" aria-hidden="true" />
+                </div>
+                <h3 className="font-poppins font-bold text-xl text-charcoal mb-3">
+                  Message Sent!
+                </h3>
+                <p className="font-inter text-medium-gray">
+                  Thank you for reaching out. We&apos;ll get back to you shortly.
+                </p>
+                <button
+                  onClick={() => {
+                    setSubmitted(false)
+                    setForm({ name: '', email: '', phone: '', subject: 'General', message: '' })
+                  }}
+                  className="mt-6 text-gold font-inter font-medium hover:underline text-sm"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                <div className="grid sm:grid-cols-2 gap-5">
+                  {/* Name */}
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block font-inter text-sm font-medium text-charcoal mb-1.5"
+                    >
+                      Full Name <span className="text-gold">*</span>
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder="Prathamesh Gaikwad"
+                      className={`w-full px-4 py-3 border rounded-xl font-inter text-sm text-charcoal bg-light-gray placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-colors ${
+                        errors.name ? 'border-red-400' : 'border-gray-200'
+                      }`}
+                      aria-describedby={errors.name ? 'name-error' : undefined}
+                    />
+                    {errors.name && (
+                      <p id="name-error" className="mt-1 text-xs text-red-500 font-inter">
+                        {errors.name}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block font-inter text-sm font-medium text-charcoal mb-1.5"
+                    >
+                      Email Address <span className="text-gold">*</span>
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      placeholder="you@example.com"
+                      className={`w-full px-4 py-3 border rounded-xl font-inter text-sm text-charcoal bg-light-gray placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-colors ${
+                        errors.email ? 'border-red-400' : 'border-gray-200'
+                      }`}
+                      aria-describedby={errors.email ? 'email-error' : undefined}
+                    />
+                    {errors.email && (
+                      <p id="email-error" className="mt-1 text-xs text-red-500 font-inter">
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block font-inter text-sm font-medium text-charcoal mb-1.5"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="+91 96372 61513"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl font-inter text-sm text-charcoal bg-light-gray placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-colors"
+                  />
+                </div>
+
+                {/* Subject */}
+                <div>
+                  <label
+                    htmlFor="subject"
+                    className="block font-inter text-sm font-medium text-charcoal mb-1.5"
+                  >
+                    Subject
+                  </label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    value={form.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl font-inter text-sm text-charcoal bg-light-gray focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-colors appearance-none cursor-pointer"
+                  >
+                    <option value="General">General Enquiry</option>
+                    <option value="Infrastructure">SG Infrastructure</option>
+                    <option value="Enterprises">SG Enterprises</option>
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block font-inter text-sm font-medium text-charcoal mb-1.5"
+                  >
+                    Message <span className="text-gold">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
+                    rows={5}
+                    placeholder="Tell us about your project or requirement..."
+                    className={`w-full px-4 py-3 border rounded-xl font-inter text-sm text-charcoal bg-light-gray placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-colors resize-none ${
+                      errors.message ? 'border-red-400' : 'border-gray-200'
+                    }`}
+                    aria-describedby={errors.message ? 'message-error' : undefined}
+                  />
+                  {errors.message && (
+                    <p id="message-error" className="mt-1 text-xs text-red-500 font-inter">
+                      {errors.message}
+                    </p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-gold hover:bg-gold-dark text-charcoal font-poppins font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5 active:translate-y-0"
+                >
+                  <Send size={18} aria-hidden="true" />
+                  Send Message
+                </button>
+              </form>
+            )}
+          </div>
+
+          {/* Right: Contact Info */}
+          <div className="flex flex-col gap-6">
+            {/* Contact Cards */}
+            <div className="grid gap-4">
+              <div className="flex items-start gap-4 bg-light-gray rounded-2xl p-5 border border-gray-100">
+                <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                  <Phone size={20} className="text-gold" aria-hidden="true" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="font-inter text-xs text-medium-gray uppercase tracking-wider mb-1">
+                    Phone
+                  </p>
+                  <a
+                    href={`tel:${COMPANY.phone}`}
+                    className="font-poppins font-semibold text-charcoal hover:text-gold transition-colors text-base"
+                  >
+                    +91 {COMPANY.phone}
+                  </a>
+                  <p className="font-inter text-sm text-medium-gray mt-0.5">
+                    {COMPANY.contactPerson}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 bg-light-gray rounded-2xl p-5 border border-gray-100">
+                <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                  <Mail size={20} className="text-gold" aria-hidden="true" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="font-inter text-xs text-medium-gray uppercase tracking-wider mb-1">
+                    Email
+                  </p>
+                  <a
+                    href={`mailto:${COMPANY.email}`}
+                    className="font-poppins font-semibold text-charcoal hover:text-gold transition-colors text-sm"
+                  >
+                    {COMPANY.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 bg-light-gray rounded-2xl p-5 border border-gray-100">
+                <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin size={20} className="text-gold" aria-hidden="true" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="font-inter text-xs text-medium-gray uppercase tracking-wider mb-1">
+                    Address
+                  </p>
+                  <p className="font-inter text-sm text-charcoal leading-relaxed">
+                    {COMPANY.address}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Maps Embed */}
+            <div className="rounded-2xl overflow-hidden border border-gray-100 flex-1 min-h-[250px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.487453580469!2d73.8532813!3d18.5203539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf4c9f02a87b%3A0x1f35e9bc1f85fe5a!2sAaple%20Ghar%20Society%2C%20Pune%2C%20Maharashtra%20411014!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: '250px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="SG Group Office Location - Aaple Ghar Society, Pune"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
