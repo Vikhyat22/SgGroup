@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import Image from 'next/image'
+import Logo from '@/components/Logo'
 
 export default function Hero() {
   const [visible, setVisible] = useState(false)
@@ -22,15 +24,30 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal"
       aria-label="Hero Section"
     >
+      {/* Background Photo */}
+      <Image
+        src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
+        alt="Construction site aerial view"
+        fill
+        priority
+        className="object-cover object-center"
+        sizes="100vw"
+      />
+
+      {/* Dark gradient overlay for text readability */}
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-charcoal/75 via-charcoal/65 to-charcoal/85"
+        aria-hidden="true"
+      />
+
       {/* World Map Watermark Background */}
-      <div className="absolute inset-0 opacity-[0.06]" aria-hidden="true">
+      <div className="absolute inset-0 opacity-[0.08]" aria-hidden="true">
         <svg
           viewBox="0 0 1200 600"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full object-cover"
           preserveAspectRatio="xMidYMid slice"
         >
-          {/* Simplified World Map Paths */}
           <g fill="#F2C811">
             {/* North America */}
             <path d="M120,80 L200,70 L230,90 L250,130 L240,170 L210,190 L180,180 L150,160 L120,140 L100,120 Z" />
@@ -51,13 +68,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Gradient Overlay */}
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/60 to-charcoal/90"
-        aria-hidden="true"
-      />
-
-      {/* Gold accent lines */}
+      {/* Gold accent line */}
       <div
         className="absolute top-0 left-0 right-0 h-1 bg-gold"
         aria-hidden="true"
@@ -69,6 +80,11 @@ export default function Hero() {
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
+        {/* Logo — prominent display */}
+        <div className="flex justify-center mb-6">
+          <Logo width={90} height={99} className="drop-shadow-2xl" />
+        </div>
+
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
           <span className="w-2 h-2 rounded-full bg-gold animate-pulse" aria-hidden="true" />
@@ -86,8 +102,8 @@ export default function Hero() {
         </h1>
 
         {/* Tagline */}
-        <p className="font-poppins font-medium text-xl sm:text-2xl md:text-3xl text-white/80 mb-4">
-          Legacy of Excellence, Empire of Vision
+        <p className="font-poppins font-medium text-xl sm:text-2xl md:text-3xl text-white/80 mb-4 uppercase tracking-widest">
+          Legacy of Excellence · Empire of Vision
         </p>
 
         {/* Divider */}
@@ -99,7 +115,7 @@ export default function Hero() {
 
         {/* Sub Description */}
         <p className="font-inter text-base sm:text-lg text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Two powerful divisions — <strong className="text-white/80">SG Infrastructure</strong> &
+          Two powerful divisions — <strong className="text-white/80">SG Infrastructure</strong> &amp;
           <strong className="text-white/80"> SG Enterprises</strong> — delivering excellence across
           construction, supply chain, and industrial solutions.
         </p>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Wrench, Package, Shield, Cpu, Mail } from 'lucide-react'
+import Image from 'next/image'
 import { ENTERPRISES } from '@/lib/constants'
 
 const ICONS = {
@@ -41,18 +42,32 @@ export default function SGEnterprises() {
       aria-label="SG Enterprises Services"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Banner Image */}
+        <div className="relative rounded-2xl overflow-hidden mb-16 h-64 sm:h-80 lg:h-96 shadow-xl">
+          <Image
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80"
+            alt="SG Enterprises — warehouse and industrial supply operations"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" aria-hidden="true" />
+          <div className="absolute inset-0 flex flex-col justify-center px-8 sm:px-12">
+            <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-2">
+              Our Division
+            </p>
+            <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-3">
+              {ENTERPRISES.name}
+            </h2>
+            <p className="font-poppins font-medium text-base sm:text-lg text-white/80 italic">
+              &ldquo;{ENTERPRISES.tagline}&rdquo;
+            </p>
+          </div>
+        </div>
+
+        {/* Sub-description */}
         <div className="text-center mb-16">
-          <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-3">
-            Our Division
-          </p>
-          <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal mb-4 gold-underline gold-underline-center">
-            {ENTERPRISES.name}
-          </h2>
-          <p className="font-poppins font-medium text-lg sm:text-xl text-medium-gray mt-6">
-            &ldquo;{ENTERPRISES.tagline}&rdquo;
-          </p>
-          <p className="font-inter text-medium-gray text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+          <p className="font-inter text-medium-gray text-base max-w-2xl mx-auto leading-relaxed">
             Supplying premium industrial and commercial products from trusted manufacturers,
             ensuring quality, safety, and reliability for every business need.
           </p>

@@ -2,6 +2,7 @@
 
 import { Phone, Mail, MapPin, Globe } from 'lucide-react'
 import { COMPANY, INFRASTRUCTURE, ENTERPRISES } from '@/lib/constants'
+import Logo from '@/components/Logo'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -30,28 +31,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 42 42"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <polygon points="21,3 39,36 3,36" fill="#F2C811" />
-                <polygon points="21,9 34,33 8,33" fill="#1A1A1A" />
-                <text
-                  x="21"
-                  y="28"
-                  textAnchor="middle"
-                  fill="#F2C811"
-                  fontSize="9"
-                  fontWeight="bold"
-                  fontFamily="sans-serif"
-                >
-                  SG
-                </text>
-              </svg>
+              <Logo width={40} height={44} />
               <div>
                 <p className="font-poppins font-bold text-xl text-white tracking-wide">SG GROUP</p>
               </div>

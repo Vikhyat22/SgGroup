@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Building2, HardHat, Zap, Settings, Mail } from 'lucide-react'
+import Image from 'next/image'
 import { INFRASTRUCTURE } from '@/lib/constants'
 
 const ICONS = {
@@ -41,19 +42,32 @@ export default function SGInfrastructure() {
       aria-label="SG Infrastructure Services"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Banner Image */}
+        <div className="relative rounded-2xl overflow-hidden mb-16 h-64 sm:h-80 lg:h-96 shadow-xl">
+          <Image
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&q=80"
+            alt="SG Infrastructure — architectural engineering and building projects"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" aria-hidden="true" />
+          <div className="absolute inset-0 flex flex-col justify-center px-8 sm:px-12">
+            <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-2">
+              Our Division
+            </p>
+            <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-3">
+              {INFRASTRUCTURE.name}
+            </h2>
+            <p className="font-poppins font-medium text-base sm:text-lg text-white/80 italic">
+              &ldquo;{INFRASTRUCTURE.tagline}&rdquo;
+            </p>
+          </div>
+        </div>
+
+        {/* Sub-description */}
         <div className="text-center mb-16">
-          <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-3">
-            Our Division
-          </p>
-          <h2 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal mb-4 gold-underline gold-underline-center">
-            {INFRASTRUCTURE.name}
-          </h2>
-          <div className="h-1 w-0" aria-hidden="true" />
-          <p className="font-poppins font-medium text-lg sm:text-xl text-medium-gray mt-6">
-            &ldquo;{INFRASTRUCTURE.tagline}&rdquo;
-          </p>
-          <p className="font-inter text-medium-gray text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+          <p className="font-inter text-medium-gray text-base max-w-2xl mx-auto leading-relaxed">
             Building world-class infrastructure across India with precision engineering, quality
             materials, and an unwavering commitment to safety and sustainability.
           </p>

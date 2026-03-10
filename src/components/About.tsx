@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { STATS } from '@/lib/constants'
 
 function CounterItem({
@@ -114,40 +115,24 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right - Decorative Element */}
+          {/* Right - Real photo */}
           <div className="flex items-center justify-center">
-            <div className="relative">
-              {/* Main decorative box */}
-              <div className="bg-charcoal rounded-2xl p-10 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full -translate-y-12 translate-x-12" aria-hidden="true" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gold/10 rounded-full translate-y-8 -translate-x-8" aria-hidden="true" />
-                {/* Triangle Logo Large */}
-                <svg
-                  width="160"
-                  height="160"
-                  viewBox="0 0 160 160"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-label="SG Group Logo"
-                  className="relative z-10"
-                >
-                  <polygon points="80,10 150,140 10,140" fill="#F2C811" opacity="0.9" />
-                  <polygon points="80,30 135,130 25,130" fill="#1A1A1A" />
-                  <text
-                    x="80"
-                    y="108"
-                    textAnchor="middle"
-                    fill="#F2C811"
-                    fontSize="32"
-                    fontWeight="bold"
-                    fontFamily="sans-serif"
-                  >
-                    SG
-                  </text>
-                </svg>
-                <div className="relative z-10 mt-6 text-center">
-                  <p className="font-poppins font-bold text-white text-xl">SG GROUP</p>
-                  <p className="font-inter text-white/60 text-xs mt-1 tracking-wider uppercase">
+            <div className="relative w-full max-w-lg">
+              {/* Photo */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
+                <Image
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+                  alt="SG Group construction team at work on a project site"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                {/* Subtle overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent" aria-hidden="true" />
+                {/* Caption badge */}
+                <div className="absolute bottom-4 left-4 right-4 bg-charcoal/80 backdrop-blur-sm rounded-xl px-4 py-3">
+                  <p className="font-poppins font-bold text-white text-sm">SG GROUP</p>
+                  <p className="font-inter text-white/60 text-xs mt-0.5 tracking-wider uppercase">
                     Legacy · Excellence · Vision
                   </p>
                 </div>
