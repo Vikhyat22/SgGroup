@@ -22,34 +22,17 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal"
       aria-label="Hero Section"
     >
-      {/* World Map Watermark Background */}
-      <div className="absolute inset-0 opacity-[0.06]" aria-hidden="true">
-        <svg
-          viewBox="0 0 1200 600"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-cover"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          {/* Simplified World Map Paths */}
-          <g fill="#F2C811">
-            {/* North America */}
-            <path d="M120,80 L200,70 L230,90 L250,130 L240,170 L210,190 L180,180 L150,160 L120,140 L100,120 Z" />
-            <path d="M100,120 L120,140 L130,180 L110,220 L90,230 L70,210 L75,170 L80,140 Z" />
-            {/* South America */}
-            <path d="M150,230 L190,210 L210,240 L220,290 L210,340 L190,380 L170,400 L150,380 L140,340 L130,290 L140,250 Z" />
-            {/* Europe */}
-            <path d="M460,60 L510,50 L540,70 L550,100 L530,120 L500,130 L470,120 L450,100 Z" />
-            <path d="M500,130 L540,120 L570,140 L580,170 L560,185 L530,175 L510,155 Z" />
-            {/* Africa */}
-            <path d="M480,170 L530,155 L570,170 L590,220 L600,280 L590,340 L570,380 L540,400 L510,390 L490,360 L470,300 L465,240 Z" />
-            {/* Asia */}
-            <path d="M580,60 L700,40 L800,50 L850,80 L870,120 L860,150 L820,160 L780,150 L750,170 L720,180 L690,170 L660,150 L630,130 L600,100 L580,80 Z" />
-            <path d="M750,170 L820,160 L860,190 L880,230 L870,270 L840,290 L800,280 L760,250 L740,210 Z" />
-            {/* Australia */}
-            <path d="M820,340 L890,320 L940,340 L960,380 L950,420 L920,440 L880,440 L850,420 L830,390 L810,360 Z" />
-          </g>
-        </svg>
-      </div>
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        aria-hidden="true"
+      >
+        <source src="https://video.wixstatic.com/video/c837a6_ae4f4741c31844bfba715de2983231fd/1080p/mp4/file.mp4" type="video/mp4" />
+      </video>
 
       {/* Gradient Overlay */}
       <div
@@ -69,6 +52,13 @@ export default function Hero() {
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
+        {/* Logo */}
+        <img
+          src="/logo.png"
+          alt="SG Group"
+          className="h-24 sm:h-32 w-auto mx-auto mb-6"
+        />
+
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
           <span className="w-2 h-2 rounded-full bg-gold animate-pulse" aria-hidden="true" />

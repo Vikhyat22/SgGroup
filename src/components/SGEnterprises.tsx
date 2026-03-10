@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { Wrench, Package, Shield, Cpu, Mail } from 'lucide-react'
 import { ENTERPRISES } from '@/lib/constants'
 
@@ -56,6 +57,26 @@ export default function SGEnterprises() {
             Supplying premium industrial and commercial products from trusted manufacturers,
             ensuring quality, safety, and reliability for every business need.
           </p>
+        </div>
+
+        {/* Banner Images */}
+        <div className="mb-12 grid sm:grid-cols-2 gap-6">
+          <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="https://static.wixstatic.com/media/c837a6_47223d00a4af4c01bde4b5a6b06ea3ad~mv2.jpg/v1/fill/w_1042,h_2224,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_47223d00a4af4c01bde4b5a6b06ea3ad~mv2.jpg"
+              alt="SG Enterprises"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="https://static.wixstatic.com/media/c837a6_069649aec1074db192a4cd263d81a897~mv2.jpg/v1/fill/w_980,h_2076,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_069649aec1074db192a4cd263d81a897~mv2.jpg"
+              alt="SG Enterprises Products"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
 
         {/* Service Cards */}

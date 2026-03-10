@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { STATS } from '@/lib/constants'
 
 function CounterItem({
@@ -114,43 +115,16 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right - Decorative Element */}
+          {/* Right - Section Image */}
           <div className="flex items-center justify-center">
-            <div className="relative">
-              {/* Main decorative box */}
-              <div className="bg-charcoal rounded-2xl p-10 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full -translate-y-12 translate-x-12" aria-hidden="true" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gold/10 rounded-full translate-y-8 -translate-x-8" aria-hidden="true" />
-                {/* Triangle Logo Large */}
-                <svg
-                  width="160"
-                  height="160"
-                  viewBox="0 0 160 160"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-label="SG Group Logo"
-                  className="relative z-10"
-                >
-                  <polygon points="80,10 150,140 10,140" fill="#F2C811" opacity="0.9" />
-                  <polygon points="80,30 135,130 25,130" fill="#1A1A1A" />
-                  <text
-                    x="80"
-                    y="108"
-                    textAnchor="middle"
-                    fill="#F2C811"
-                    fontSize="32"
-                    fontWeight="bold"
-                    fontFamily="sans-serif"
-                  >
-                    SG
-                  </text>
-                </svg>
-                <div className="relative z-10 mt-6 text-center">
-                  <p className="font-poppins font-bold text-white text-xl">SG GROUP</p>
-                  <p className="font-inter text-white/60 text-xs mt-1 tracking-wider uppercase">
-                    Legacy · Excellence · Vision
-                  </p>
-                </div>
+            <div className="relative w-full max-w-md">
+              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: '2084/1772' }}>
+                <Image
+                  src="https://static.wixstatic.com/media/c837a6_eb05560eb8764160936d511f9cb1af73~mv2.jpg/v1/fill/w_2084,h_1772,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_eb05560eb8764160936d511f9cb1af73~mv2.jpg"
+                  alt="SG Group About"
+                  fill
+                  className="object-cover"
+                />
               </div>
               {/* Decorative dots */}
               <div className="absolute -top-4 -left-4 grid grid-cols-4 gap-1.5" aria-hidden="true">

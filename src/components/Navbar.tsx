@@ -54,30 +54,8 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
             aria-label="SG Group - Home"
           >
-            {/* SVG Triangle Logo */}
-            <svg
-              width="42"
-              height="42"
-              viewBox="0 0 42 42"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="flex-shrink-0"
-              aria-hidden="true"
-            >
-              <polygon points="21,3 39,36 3,36" fill="#F2C811" />
-              <polygon points="21,9 34,33 8,33" fill="#1A1A1A" />
-              <text
-                x="21"
-                y="28"
-                textAnchor="middle"
-                fill="#F2C811"
-                fontSize="9"
-                fontWeight="bold"
-                fontFamily="sans-serif"
-              >
-                SG
-              </text>
-            </svg>
+            {/* Logo */}
+            <img src="/logo.png" alt="SG Group Logo" className="h-10 w-auto flex-shrink-0" />
             <div className="flex flex-col leading-tight">
               <span className="font-poppins font-bold text-xl text-charcoal tracking-wide">
                 SG GROUP
