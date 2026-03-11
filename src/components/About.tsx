@@ -104,13 +104,16 @@ export default function About() {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <span className="bg-gold/10 text-charcoal font-inter font-medium text-sm px-4 py-2 rounded-full border border-gold/20">
-                ISO Certified
+                GST Compliant
+              </span>
+              <span className="bg-gold/10 text-charcoal font-inter font-medium text-sm px-4 py-2 rounded-full border border-gold/20">
+                MSME Registered
               </span>
               <span className="bg-gold/10 text-charcoal font-inter font-medium text-sm px-4 py-2 rounded-full border border-gold/20">
                 Pan India Presence
               </span>
               <span className="bg-gold/10 text-charcoal font-inter font-medium text-sm px-4 py-2 rounded-full border border-gold/20">
-                Trusted Since 2014
+                Trusted Since 2024
               </span>
             </div>
           </div>
