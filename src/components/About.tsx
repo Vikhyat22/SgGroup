@@ -89,7 +89,7 @@ export default function About() {
                 innovation. We bring together two powerful divisions under one visionary umbrella.
               </p>
               <p>
-                <strong className="text-charcoal">SG Infrastructure</strong> shapes tomorrow&apos;s
+                <strong className="text-charcoal">SG Infraastructure</strong> shapes tomorrow&apos;s
                 skyline through world-class construction and civil engineering, while{' '}
                 <strong className="text-charcoal">SG Enterprises</strong> ensures industrial
                 excellence through premium MRO supplies, packaging materials, safety gear, and ESD

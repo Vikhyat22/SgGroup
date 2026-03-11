@@ -99,11 +99,11 @@ export default function Navbar() {
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-charcoal rounded-xl shadow-xl border border-white/10 overflow-hidden z-50">
                   <div className="py-2">
                     <button
-                      onClick={() => handleScrollTo('sg-infrastructure')}
+                      onClick={() => handleScrollTo('sg-infraastructure')}
                       className="w-full text-left px-5 py-3 font-inter text-sm text-white hover:bg-gold/10 hover:text-gold transition-colors duration-150 flex items-center gap-2"
                     >
                       <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                      SG Infrastructure
+                      SG Infraastructure
                     </button>
                     <button
                       onClick={() => handleScrollTo('sg-enterprises')}
@@ -176,11 +176,11 @@ export default function Navbar() {
               {mobileServicesOpen && (
                 <div className="ml-4 border-l-2 border-gold/20 pl-4 flex flex-col gap-1">
                   <button
-                    onClick={() => handleScrollTo('sg-infrastructure')}
+                    onClick={() => handleScrollTo('sg-infraastructure')}
                     className="text-left px-4 py-2.5 font-inter text-sm text-white hover:bg-gold/10 rounded-lg transition-colors flex items-center gap-2"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
-                    SG Infrastructure
+                    SG Infraastructure
                   </button>
                   <button
                     onClick={() => handleScrollTo('sg-enterprises')}

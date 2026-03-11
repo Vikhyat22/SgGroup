@@ -9,7 +9,7 @@ export default function Footer() {
   const quickLinks = [
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about' },
-    { label: 'SG Infrastructure', id: 'sg-infrastructure' },
+    { label: 'SG Infraastructure', id: 'sg-infraastructure' },
     { label: 'SG Enterprises', id: 'sg-enterprises' },
     { label: 'Contact', id: 'contact' },
   ]
@@ -36,7 +36,7 @@ export default function Footer() {
               &ldquo;Legacy of Excellence, Empire of Vision&rdquo;
             </p>
             <p className="font-inter text-white/60 text-sm leading-relaxed">
-              A diversified conglomerate driving excellence in infrastructure and enterprise
+              A diversified conglomerate driving excellence in infraastructure and enterprise
               solutions across India.
             </p>
 
@@ -137,7 +137,7 @@ export default function Footer() {
             &copy; {year} SG Group. All Rights Reserved.
           </p>
           <p className="font-inter text-white/30 text-xs text-center sm:text-right">
-            SG Infrastructure &bull; SG Enterprises
+            SG Infraastructure &bull; SG Enterprises
           </p>
         </div>
       </div>

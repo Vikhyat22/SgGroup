@@ -82,7 +82,7 @@ export default function Hero() {
 
         {/* Sub Description */}
         <p className="font-inter text-base sm:text-lg text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Two powerful divisions — <strong className="text-white/80">SG Infrastructure</strong> &
+          Two powerful divisions — <strong className="text-white/80">SG Infraastructure</strong> &
           <strong className="text-white/80"> SG Enterprises</strong> — delivering excellence across
           construction, supply chain, and industrial solutions.
         </p>
@@ -90,7 +90,7 @@ export default function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
-            onClick={() => scrollTo('sg-infrastructure')}
+            onClick={() => scrollTo('sg-infraastructure')}
             className="bg-gold hover:bg-gold-dark text-charcoal font-poppins font-semibold px-8 py-4 rounded-xl text-base transition-all duration-200 hover:shadow-2xl hover:shadow-gold/30 hover:-translate-y-1 active:translate-y-0 w-full sm:w-auto"
           >
             Explore Our Services

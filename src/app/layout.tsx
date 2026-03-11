@@ -4,13 +4,13 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'SG Group – Legacy of Excellence, Empire of Vision',
   description:
-    'SG Group is a diversified conglomerate with two powerful divisions: SG Infrastructure (Construction, Civil, Electric, Mechanical Works) and SG Enterprises (MRO Supplies, Packaging, Safety Gear, ESD Products).',
-  keywords: 'SG Group, SG Infrastructure, SG Enterprises, construction, civil works, MRO supplies, Pune',
+    'SG Group is a diversified conglomerate with two powerful divisions: SG Infraastructure (Construction, Civil, Electric, Mechanical Works) and SG Enterprises (MRO Supplies, Packaging, Safety Gear, ESD Products).',
+  keywords: 'SG Group, SG Infraastructure, SG Enterprises, construction, civil works, MRO supplies, Pune',
   authors: [{ name: 'SG Group', url: 'https://www.sggroup.info' }],
   openGraph: {
     title: 'SG Group – Legacy of Excellence, Empire of Vision',
     description:
-      'SG Group is a diversified conglomerate with two powerful divisions: SG Infrastructure and SG Enterprises.',
+      'SG Group is a diversified conglomerate with two powerful divisions: SG Infraastructure and SG Enterprises.',
     url: 'https://www.sggroup.info',
     siteName: 'SG Group',
     type: 'website',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SG Group – Legacy of Excellence, Empire of Vision',
     description:
-      'SG Group — a diversified conglomerate with divisions in Infrastructure and Enterprises.',
+      'SG Group — a diversified conglomerate with divisions in Infraastructure and Enterprises.',
   },
   robots: {
     index: true,

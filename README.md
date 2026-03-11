@@ -3,7 +3,7 @@
 > **Legacy of Excellence, Empire of Vision**
 
 Production-ready website for **SG Group**, a diversified conglomerate with two divisions:
-- **SG Infrastructure** — Construction, Civil Works, Electric Works, Mechanical Works
+- **SG Infraastructure** — Construction, Civil Works, Electric Works, Mechanical Works
 - **SG Enterprises** — MRO Supplies, Packaging Material, Safety Gear & PPE, ESD Products
 
 ## 🛠 Tech Stack
@@ -75,7 +75,7 @@ SgGroup/
 │   │   ├── Navbar.tsx         # Sticky nav with services dropdown
 │   │   ├── Hero.tsx           # Hero section
 │   │   ├── About.tsx          # About with animated counters
-│   │   ├── SGInfrastructure.tsx  # Infrastructure services
+│   │   ├── SGInfraastructure.tsx  # Infraastructure services
 │   │   ├── SGEnterprises.tsx     # Enterprises services
 │   │   ├── WhyChooseUs.tsx    # Features grid
 │   │   ├── Contact.tsx        # Form + info + map

@@ -206,7 +206,7 @@ export default function Contact() {
                     className="w-full px-4 py-3 border border-gray-200 rounded-xl font-inter text-sm text-charcoal bg-light-gray focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-colors appearance-none cursor-pointer"
                   >
                     <option value="General">General Enquiry</option>
-                    <option value="Infrastructure">SG Infrastructure</option>
+                    <option value="Infraastructure">SG Infraastructure</option>
                     <option value="Enterprises">SG Enterprises</option>
                   </select>
                 </div>

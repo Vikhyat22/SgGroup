@@ -19,9 +19,9 @@ export const COMPANY = {
   contactPerson: 'Prathamesh Gaikwad',
 } as const;
 
-// SG Infrastructure
+// SG Infraastructure
 export const INFRASTRUCTURE = {
-  name: 'SG Infrastructure',
+  name: 'SG Infraastructure',
   tagline: 'Shaping Tomorrow\'s Skyline',
   email: 'sg.infraastructure@gmail.com',
   services: [
@@ -37,7 +37,7 @@ export const INFRASTRUCTURE = {
     },
     {
       title: 'Electric Works',
-      description: 'Professional electrical installations, wiring, panel setups, and power management systems for all types of infrastructure projects.',
+      description: 'Professional electrical installations, wiring, panel setups, and power management systems for all types of infraastructure projects.',
       icon: 'zap',
     },
     {

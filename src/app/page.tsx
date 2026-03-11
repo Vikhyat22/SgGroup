@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import SGInfrastructure from '@/components/SGInfrastructure'
+import SGInfraastructure from '@/components/SGInfraastructure'
 import SGEnterprises from '@/components/SGEnterprises'
 import WhyChooseUs from '@/components/WhyChooseUs'
 import Contact from '@/components/Contact'
@@ -14,7 +14,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <About />
-        <SGInfrastructure />
+        <SGInfraastructure />
         <SGEnterprises />
         <WhyChooseUs />
         <Contact />
