@@ -182,21 +182,21 @@ export default function Footer() {
 
       {/* Developer Credit */}
       <div className="border-t border-white/5">
-        <p className="text-center py-4 font-inter text-white/25 text-xs tracking-wide flex items-center justify-center gap-1.5">
-          <span className="inline-block w-3 h-[1px] bg-white/10" aria-hidden="true" />
-          Crafted with
-          <span className="text-gold text-[10px] leading-none" aria-hidden="true">&#9829;</span>
-          by
-          <a
-            href="https://www.linkedin.com/in/vikhyat-gupta-401978257"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/50 hover:text-gold font-medium transition-colors duration-300 border-b border-dotted border-white/10 hover:border-gold/50 pb-[1px]"
-          >
-            Vikhyat Gupta
-          </a>
-          <span className="inline-block w-3 h-[1px] bg-white/10" aria-hidden="true" />
-        </p>
+        <div className="text-center py-4">
+          <span className="font-inter text-white/30 text-xs tracking-wide">
+            Crafted with{' '}
+            <span className="text-gold text-xs">&#x2764;</span>
+            {' '}by{' '}
+            <a
+              href="https://www.linkedin.com/in/vikhyat-gupta-401978257"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/50 hover:text-gold font-medium transition-colors duration-300 border-b border-dotted border-white/15 hover:border-gold/50"
+            >
+              Vikhyat Gupta
+            </a>
+          </span>
+        </div>
       </div>
     </footer>
   )
