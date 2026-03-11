@@ -43,7 +43,7 @@ export default function SGInfraastructure() {
       }`}
       aria-label="SG Infraastructure Services"
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+      <div className="mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-32">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-3">

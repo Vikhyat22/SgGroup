@@ -27,7 +27,7 @@ export default function Footer() {
       {/* Gold accent line */}
       <div className="h-1 w-full bg-gold" aria-hidden="true" />
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 py-16">
+      <div className="mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-32 py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Column 1: Brand */}
           <div>
@@ -161,7 +161,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-32 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-inter text-white/40 text-sm text-center sm:text-left">
             &copy; {year} SG Group. All Rights Reserved.
           </p>
