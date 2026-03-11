@@ -84,7 +84,7 @@ export default function SGEnterprises() {
         </div>
 
         {/* Service Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-6 xl:gap-8">
           {ENTERPRISES.services.map((service, index) => {
             const Icon = ICONS[service.icon as IconKey] ?? Wrench
             return (

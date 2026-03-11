@@ -50,7 +50,7 @@ export default function Hero() {
 
       {/* Content */}
       <div
-        className={`relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto transition-all duration-1000 ${
+        className={`relative z-10 text-center px-4 sm:px-6 max-w-4xl xl:max-w-5xl mx-auto transition-all duration-1000 ${
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
