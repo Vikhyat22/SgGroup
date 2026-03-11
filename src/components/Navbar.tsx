@@ -11,11 +11,19 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const hero = document.getElementById('home')
+    if (!hero) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // When hero is NOT intersecting (scrolled past it), show dark navbar
+        setIsScrolled(!entry.isIntersecting)
+      },
+      { threshold: 0, rootMargin: '-1px' }
+    )
+
+    observer.observe(hero)
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
