@@ -63,7 +63,7 @@ export default function SGEnterprises() {
 
         {/* Banner Images */}
         <div className="mb-12 grid sm:grid-cols-2 gap-6">
-          <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative h-64 sm:h-80 xl:h-96 rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=80&auto=format&fit=crop"
               alt="SG Enterprises industrial warehouse with organized MRO inventory shelves"
@@ -72,7 +72,7 @@ export default function SGEnterprises() {
               className="object-cover"
             />
           </div>
-          <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative h-64 sm:h-80 xl:h-96 rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="https://www.thechecker.net/hubfs/PPE.jpg"
               alt="PPE safety gear and protective equipment supplied by SG Enterprises"
@@ -84,7 +84,7 @@ export default function SGEnterprises() {
         </div>
 
         {/* Service Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-6 xl:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {ENTERPRISES.services.map((service, index) => {
             const Icon = ICONS[service.icon as IconKey] ?? Wrench
             return (

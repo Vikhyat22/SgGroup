@@ -68,13 +68,13 @@ export default function SGInfraastructure() {
             src="https://static.wixstatic.com/media/c837a6_a656204e75b84246a3f517833decf462~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-157284152.jpg"
             alt="SG Infraastructure construction and civil engineering projects in Pune, India"
             fill
-            sizes="(max-width: 1280px) 100vw, 1280px"
+            sizes="(max-width: 1800px) 94vw, 1800px"
             className="object-cover"
           />
         </div>
 
         {/* Service Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-6 xl:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {INFRASTRUCTURE.services.map((service, index) => {
             const Icon = ICONS[service.icon as IconKey] ?? Building2
             return (

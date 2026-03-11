@@ -61,14 +61,9 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer components {
   .site-container {
-    width: 100%;
-    max-width: 1536px;
+    width: min(94%, 1800px);
     margin-inline: auto;
-    padding-inline: 1.5rem;
-  }
-
-  .text-readable {
-    max-width: 640px;
+    padding-inline: clamp(1rem, 2vw, 2.5rem);
   }
 }
 
