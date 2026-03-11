@@ -30,14 +30,14 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div>
             <div className="mb-5">
-              <img src="/logo.png" alt="SG Group Logo" className="h-14 w-auto" />
+              <img src="/logo.png" alt="SG Group Logo" className="h-10 md:h-12 w-auto" />
             </div>
-            <p className="font-inter text-white/60 text-sm leading-relaxed mb-4">
+            <p className="font-poppins font-medium text-gold text-sm italic mb-4">
+              &ldquo;Legacy of Excellence, Empire of Vision&rdquo;
+            </p>
+            <p className="font-inter text-white/60 text-sm leading-relaxed">
               A diversified conglomerate driving excellence in infrastructure and enterprise
               solutions across India.
-            </p>
-            <p className="font-poppins font-medium text-gold text-sm italic">
-              &ldquo;Legacy of Excellence, Empire of Vision&rdquo;
             </p>
 
             <div className="mt-6 flex items-center gap-2">
