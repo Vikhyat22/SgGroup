@@ -66,7 +66,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Visual Element */}
-        <div className="mb-12 relative w-full h-64 sm:h-80 xl:h-96 rounded-2xl overflow-hidden shadow-lg">
+        <div className="mb-12 relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
           <Image
             src="https://static.wixstatic.com/media/c837a6_136f489b41d445c38ff79f772d719210~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_136f489b41d445c38ff79f772d719210~mv2.jpg"
             alt="Why choose SG Group — quality assurance, timely delivery, and expert team in Pune"
@@ -77,7 +77,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURES.map((feature, index) => {
             const Icon = ICONS[feature.icon as IconKey] ?? CheckCircle
             return (
