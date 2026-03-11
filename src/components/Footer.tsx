@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <nav aria-label="Quick links">
             <h3 className="font-poppins font-bold text-base text-white mb-5 relative inline-block">
               Quick Links
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gold rounded-full" aria-hidden="true" />
@@ -62,8 +62,12 @@ export default function Footer() {
             <ul className="space-y-3 mt-2">
               {quickLinks.map((link) => (
                 <li key={link.id}>
-                  <button
-                    onClick={() => scrollTo(link.id)}
+                  <a
+                    href={`#${link.id}`}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      scrollTo(link.id)
+                    }}
                     className="font-inter text-white/60 hover:text-gold text-sm transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span
@@ -71,11 +75,11 @@ export default function Footer() {
                       aria-hidden="true"
                     />
                     {link.label}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Column 3: Contact Info */}
           <div>

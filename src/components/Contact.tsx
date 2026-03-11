@@ -15,7 +15,9 @@ export default function Contact() {
     phone: '',
     subject: 'General',
     message: '',
+    website: '',
   })
+  const successRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,14 +47,17 @@ export default function Contact() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
+    if (form.website) return
     const newErrors = validate()
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
+      const firstErrorField = document.getElementById(Object.keys(newErrors)[0])
+      firstErrorField?.focus()
       return
     }
     setErrors({})
-    // In a real app, this would send to an API
     setSubmitted(true)
+    setTimeout(() => successRef.current?.focus(), 100)
   }
 
   const handleChange = (
@@ -93,7 +98,13 @@ export default function Contact() {
           {/* Left: Contact Form */}
           <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
             {submitted ? (
-              <div className="flex flex-col items-center justify-center h-full text-center py-12">
+              <div
+                ref={successRef}
+                tabIndex={-1}
+                role="status"
+                aria-live="polite"
+                className="flex flex-col items-center justify-center h-full text-center py-12 outline-none"
+              >
                 <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-5">
                   <CheckCircle size={32} className="text-gold" aria-hidden="true" />
                 </div>
@@ -106,7 +117,7 @@ export default function Contact() {
                 <button
                   onClick={() => {
                     setSubmitted(false)
-                    setForm({ name: '', email: '', phone: '', subject: 'General', message: '' })
+                    setForm({ name: '', email: '', phone: '', subject: 'General', message: '', website: '' })
                   }}
                   className="mt-6 text-gold font-inter font-medium hover:underline text-sm"
                 >
@@ -128,6 +139,8 @@ export default function Contact() {
                       id="name"
                       name="name"
                       type="text"
+                      required
+                      aria-required="true"
                       value={form.name}
                       onChange={handleChange}
                       placeholder="Prathamesh Gaikwad"
@@ -155,6 +168,8 @@ export default function Contact() {
                       id="email"
                       name="email"
                       type="email"
+                      required
+                      aria-required="true"
                       value={form.email}
                       onChange={handleChange}
                       placeholder="you@example.com"
@@ -222,6 +237,8 @@ export default function Contact() {
                   <textarea
                     id="message"
                     name="message"
+                    required
+                    aria-required="true"
                     value={form.message}
                     onChange={handleChange}
                     rows={5}
@@ -236,6 +253,20 @@ export default function Contact() {
                       {errors.message}
                     </p>
                   )}
+                </div>
+
+                {/* Honeypot — hidden from real users */}
+                <div className="absolute opacity-0 -z-10 h-0 overflow-hidden" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    value={form.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
                 </div>
 
                 <button

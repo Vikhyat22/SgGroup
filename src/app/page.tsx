@@ -6,12 +6,13 @@ import SGEnterprises from '@/components/SGEnterprises'
 import WhyChooseUs from '@/components/WhyChooseUs'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
         <About />
         <SGInfraastructure />
@@ -20,6 +21,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   )
 }

@@ -66,16 +66,18 @@ export default function SGEnterprises() {
           <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=80&auto=format&fit=crop"
-              alt="Industrial warehouse with organized inventory shelves"
+              alt="SG Enterprises industrial warehouse with organized MRO inventory shelves"
               fill
+              sizes="(max-width: 640px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
           <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="https://www.thechecker.net/hubfs/PPE.jpg"
-              alt="PPE safety gear and protective equipment"
+              alt="PPE safety gear and protective equipment supplied by SG Enterprises"
               fill
+              sizes="(max-width: 640px) 100vw, 50vw"
               className="object-cover"
             />
           </div>

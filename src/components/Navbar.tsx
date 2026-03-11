@@ -1,13 +1,16 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Menu, X, ChevronDown } from 'lucide-react'
+
+const NAV_SECTIONS = ['home', 'about', 'sg-infraastructure', 'sg-enterprises', 'contact']
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -16,7 +19,6 @@ export default function Navbar() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // When hero is NOT intersecting (scrolled past it), show dark navbar
         setIsScrolled(!entry.isIntersecting)
       },
       { threshold: 0, rootMargin: '-1px' }
@@ -24,6 +26,23 @@ export default function Navbar() {
 
     observer.observe(hero)
     return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+    NAV_SECTIONS.forEach((id) => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id)
+        },
+        { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' }
+      )
+      observer.observe(el)
+      observers.push(observer)
+    })
+    return () => observers.forEach((o) => o.disconnect())
   }, [])
 
   useEffect(() => {
@@ -36,7 +55,19 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const handleScrollTo = (id: string) => {
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setServicesOpen(false)
+        setMobileMenuOpen(false)
+        setMobileServicesOpen(false)
+      }
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [])
+
+  const handleScrollTo = useCallback((id: string) => {
     const el = document.getElementById(id)
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' })
@@ -44,17 +75,34 @@ export default function Navbar() {
     setMobileMenuOpen(false)
     setServicesOpen(false)
     setMobileServicesOpen(false)
-  }
+  }, [])
+
+  const isActive = (id: string) => activeSection === id
+  const isServicesActive = activeSection === 'sg-infraastructure' || activeSection === 'sg-enterprises'
+
+  const navLinkClass = (id: string) =>
+    `font-inter font-medium transition-colors duration-200 ${
+      isActive(id) ? 'text-gold' : 'text-white hover:text-gold'
+    }`
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-charcoal backdrop-blur-md shadow-lg shadow-black/10 border-b border-gold/20'
-          : 'bg-gradient-to-b from-charcoal/70 to-transparent backdrop-blur-[2px]'
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      {/* Skip to content */}
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-gold focus:text-charcoal focus:px-4 focus:py-2 focus:rounded-lg focus:font-poppins focus:font-semibold focus:text-sm focus:shadow-lg"
+      >
+        Skip to content
+      </a>
+
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? 'bg-charcoal backdrop-blur-md shadow-lg shadow-black/10 border-b border-gold/20'
+            : 'bg-gradient-to-b from-charcoal/70 to-transparent backdrop-blur-[2px]'
+        }`}
+      >
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <button
@@ -69,13 +117,13 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => handleScrollTo('home')}
-              className="font-inter font-medium text-white hover:text-gold transition-colors duration-200"
+              className={navLinkClass('home')}
             >
               Home
             </button>
             <button
               onClick={() => handleScrollTo('about')}
-              className="font-inter font-medium text-white hover:text-gold transition-colors duration-200"
+              className={navLinkClass('about')}
             >
               About
             </button>
@@ -84,7 +132,9 @@ export default function Navbar() {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setServicesOpen((v) => !v)}
-                className="flex items-center gap-1 font-inter font-medium text-white hover:text-gold transition-colors duration-200"
+                className={`flex items-center gap-1 font-inter font-medium transition-colors duration-200 ${
+                  isServicesActive ? 'text-gold' : 'text-white hover:text-gold'
+                }`}
                 aria-expanded={servicesOpen}
                 aria-haspopup="true"
               >
@@ -119,7 +169,7 @@ export default function Navbar() {
 
             <button
               onClick={() => handleScrollTo('contact')}
-              className="font-inter font-medium text-white hover:text-gold transition-colors duration-200"
+              className={navLinkClass('contact')}
             >
               Contact
             </button>
@@ -211,6 +261,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </header>
+      </header>
+    </>
   )
 }

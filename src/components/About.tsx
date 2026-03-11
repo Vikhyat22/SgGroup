@@ -109,8 +109,9 @@ export default function About() {
               <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl" style={{ aspectRatio: '2084/1772' }}>
                 <Image
                   src="https://static.wixstatic.com/media/c837a6_eb05560eb8764160936d511f9cb1af73~mv2.jpg/v1/fill/w_2084,h_1772,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_eb05560eb8764160936d511f9cb1af73~mv2.jpg"
-                  alt="SG Group About"
+                  alt="SG Group headquarters and team — diversified conglomerate in Pune, Maharashtra"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>

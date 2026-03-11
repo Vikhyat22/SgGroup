@@ -68,8 +68,9 @@ export default function WhyChooseUs() {
         <div className="mb-12 relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
           <Image
             src="https://static.wixstatic.com/media/c837a6_136f489b41d445c38ff79f772d719210~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_136f489b41d445c38ff79f772d719210~mv2.jpg"
-            alt="Why Choose SG Group"
+            alt="Why choose SG Group — quality assurance, timely delivery, and expert team in Pune"
             fill
+            sizes="(max-width: 1280px) 100vw, 1280px"
             className="object-cover"
           />
         </div>
