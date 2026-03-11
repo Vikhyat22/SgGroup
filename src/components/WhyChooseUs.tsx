@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
         {/* Visual Element */}
         <div className="mb-12 relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
           <Image
-            src="https://static.wixstatic.com/media/c837a6_136f489b41d445c38ff79f772d719210~mv2.jpg/v1/fill/w_1154,h_1792,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_136f489b41d445c38ff79f772d719210~mv2.jpg"
+            src="https://static.wixstatic.com/media/c837a6_136f489b41d445c38ff79f772d719210~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_136f489b41d445c38ff79f772d719210~mv2.jpg"
             alt="Why Choose SG Group"
             fill
             className="object-cover"

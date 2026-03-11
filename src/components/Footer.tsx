@@ -29,11 +29,8 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Column 1: Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <img src="/logo.png" alt="SG Group Logo" className="h-10 w-auto flex-shrink-0" />
-              <div>
-                <p className="font-poppins font-bold text-xl text-white tracking-wide">SG GROUP</p>
-              </div>
+            <div className="mb-5">
+              <img src="/logo.png" alt="SG Group Logo" className="h-14 w-auto" />
             </div>
             <p className="font-inter text-white/60 text-sm leading-relaxed mb-4">
               A diversified conglomerate driving excellence in infrastructure and enterprise

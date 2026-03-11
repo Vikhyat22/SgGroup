@@ -52,13 +52,6 @@ export default function Hero() {
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        {/* Logo */}
-        <img
-          src="/logo.png"
-          alt="SG Group"
-          className="h-24 sm:h-32 w-auto mx-auto mb-6"
-        />
-
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/30 rounded-full px-4 py-1.5 mb-6">
           <span className="w-2 h-2 rounded-full bg-gold animate-pulse" aria-hidden="true" />
