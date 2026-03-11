@@ -17,28 +17,17 @@ Production-ready website for **SG Group**, a diversified conglomerate with two d
 | Fonts | Poppins + Inter (Google Fonts) |
 | Deployment | Vercel |
 
-## 🖼️ Adding Your Logo
-
-The site uses your brand logo in the **Navbar**, **Hero section**, and **Footer**.
-
-### Steps to add your logo:
-
-1. Take your logo PNG file (the gold triangle SG Group logo from your visiting card)
-2. **Rename it to `logo.png`** (exactly this name, lowercase)
-3. **Place it inside the `public/` folder** at the root of the project:
 
 ```
 SgGroup/
 ├── public/
-│   └── logo.png   ← place your logo file here  ✅
+│   └── logo.png   
 ├── src/
 ├── package.json
 └── ...
 ```
 
-4. Run `npm run dev` and your logo will appear in the Navbar, Hero, and Footer automatically.
-
-> A placeholder `logo.png` is already in the `public/` folder so the site builds without errors. Simply **replace it** with your actual logo PNG.
+4. Run `npm run dev` 
 
 ---
 
@@ -76,7 +65,7 @@ npm start
 ```
 SgGroup/
 ├── public/
-│   └── logo.png               # ← YOUR LOGO GOES HERE (replace with actual PNG)
+│   └── logo.png               
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx         # Root layout (fonts, metadata)
