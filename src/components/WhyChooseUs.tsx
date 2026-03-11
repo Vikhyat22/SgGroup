@@ -43,6 +43,7 @@ export default function WhyChooseUs() {
 
   return (
     <section
+      id="why-choose-us"
       ref={sectionRef}
       className={`py-20 lg:py-28 bg-light-gray transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

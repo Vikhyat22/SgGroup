@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+import Image from 'next/image'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
 const NAV_SECTIONS = ['home', 'about', 'sg-infraastructure', 'sg-enterprises', 'contact']
@@ -110,7 +111,7 @@ export default function Navbar() {
             className="flex items-center group"
             aria-label="SG Group - Home"
           >
-            <img src="/logo.png" alt="SG Group Logo" className="h-10 md:h-12 w-auto flex-shrink-0" />
+            <Image src="/logo.png" alt="SG Group Logo" width={120} height={48} className="h-10 md:h-12 w-auto flex-shrink-0" priority />
           </button>
 
           {/* Desktop Nav */}

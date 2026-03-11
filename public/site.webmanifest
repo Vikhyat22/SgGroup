@@ -1,0 +1,16 @@
+{
+  "name": "SG Group",
+  "short_name": "SG Group",
+  "description": "SG Group — Legacy of Excellence, Empire of Vision. A diversified conglomerate with SG Infraastructure and SG Enterprises.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1A1A1A",
+  "theme_color": "#1A1A1A",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

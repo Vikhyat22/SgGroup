@@ -188,7 +188,7 @@ export default function Contact() {
                       aria-required="true"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Prathamesh Gaikwad"
+                      placeholder="Your full name"
                       className={`w-full px-4 py-3 border rounded-xl font-inter text-sm text-charcoal bg-light-gray placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-colors ${
                         errors.name ? 'border-red-400' : 'border-gray-200'
                       }`}
@@ -245,7 +245,7 @@ export default function Contact() {
                     type="tel"
                     value={form.phone}
                     onChange={handleChange}
-                    placeholder="+91 96372 61513"
+                    placeholder="+91 9637261513"
                     className="w-full px-4 py-3 border border-gray-200 rounded-xl font-inter text-sm text-charcoal bg-light-gray placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold transition-colors"
                   />
                 </div>

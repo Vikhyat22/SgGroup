@@ -1,6 +1,8 @@
 'use client'
 
-import { Phone, Mail, MapPin, Globe } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Phone, Mail, MapPin, Globe, Instagram } from 'lucide-react'
 import { COMPANY, INFRASTRUCTURE, ENTERPRISES } from '@/lib/constants'
 
 export default function Footer() {
@@ -30,7 +32,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div>
             <div className="mb-5">
-              <img src="/logo.png" alt="SG Group Logo" className="h-10 md:h-12 w-auto" />
+              <Image src="/logo.png" alt="SG Group Logo" width={120} height={48} className="h-10 md:h-12 w-auto" />
             </div>
             <p className="font-poppins font-medium text-gold text-sm italic mb-4">
               &ldquo;Legacy of Excellence, Empire of Vision&rdquo;
@@ -40,16 +42,29 @@ export default function Footer() {
               solutions across India.
             </p>
 
-            <div className="mt-6 flex items-center gap-2">
-              <Globe size={14} className="text-gold" aria-hidden="true" />
-              <a
-                href={`https://${COMPANY.website}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-inter text-white/60 hover:text-gold text-sm transition-colors"
-              >
-                {COMPANY.website}
-              </a>
+            <div className="mt-6 flex flex-col gap-3">
+              <div className="flex items-center gap-2">
+                <Globe size={14} className="text-gold" aria-hidden="true" />
+                <a
+                  href={`https://${COMPANY.website}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-inter text-white/60 hover:text-gold text-sm transition-colors"
+                >
+                  {COMPANY.website}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Instagram size={14} className="text-gold" aria-hidden="true" />
+                <a
+                  href="https://www.instagram.com/sg_group_official"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-inter text-white/60 hover:text-gold text-sm transition-colors"
+                >
+                  @sg_group_official
+                </a>
+              </div>
             </div>
           </div>
 
@@ -140,9 +155,18 @@ export default function Footer() {
           <p className="font-inter text-white/40 text-sm text-center sm:text-left">
             &copy; {year} SG Group. All Rights Reserved.
           </p>
-          <p className="font-inter text-white/30 text-xs text-center sm:text-right">
-            SG Infraastructure &bull; SG Enterprises
-          </p>
+          <div className="flex items-center gap-3 text-center sm:text-right">
+            <Link
+              href="/privacy-policy"
+              className="font-inter text-white/40 hover:text-gold text-xs transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-white/20">&bull;</span>
+            <p className="font-inter text-white/30 text-xs">
+              SG Infraastructure &bull; SG Enterprises
+            </p>
+          </div>
         </div>
       </div>
     </footer>

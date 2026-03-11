@@ -1,5 +1,23 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
+import { Poppins, Inter } from 'next/font/google'
 import './globals.css'
+
+const GA_ID = 'G-KCLYF8ZQ29'
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.sggroup.info'),
@@ -15,6 +33,7 @@ export const metadata: Metadata = {
     icon: '/favicon.png',
     apple: '/favicon.png',
   },
+  manifest: '/site.webmanifest',
   openGraph: {
     title: 'SG Group – Legacy of Excellence, Empire of Vision',
     description:
@@ -70,7 +89,7 @@ const jsonLd = {
     contactType: 'customer service',
     email: 'connect.sggroup@gmail.com',
   },
-  sameAs: ['https://www.sggroup.info'],
+  sameAs: ['https://www.sggroup.info', 'https://www.instagram.com/sg_group_official'],
   foundingDate: '2024',
   numberOfEmployees: { '@type': 'QuantitativeValue', value: '100+' },
   subOrganization: [
@@ -98,19 +117,24 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="theme-color" content="#1A1A1A" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
         />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className={`${poppins.variable} ${inter.variable} antialiased`}>{children}</body>
     </html>
   )
 }

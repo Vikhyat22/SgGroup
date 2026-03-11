@@ -16,8 +16,8 @@ const config: Config = {
         'medium-gray': '#666666',
       },
       fontFamily: {
-        poppins: ['Poppins', 'system-ui', 'sans-serif'],
-        inter: ['Inter', 'system-ui', 'sans-serif'],
+        poppins: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
+        inter: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-in-out forwards',
