@@ -28,9 +28,9 @@ export default function Footer() {
       <div className="h-1 w-full bg-gold" aria-hidden="true" />
 
       <div className="site-container py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Column 1: Brand */}
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col h-full lg:col-span-4">
             <h3 className="font-poppins font-bold text-base text-white mb-5 relative inline-block">
               SG Group
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gold rounded-full" aria-hidden="true" />
@@ -78,12 +78,12 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <nav aria-label="Quick links" className="flex flex-col h-full">
+          <nav aria-label="Quick links" className="flex flex-col h-full lg:col-span-3">
             <h3 className="font-poppins font-bold text-base text-white mb-5 relative inline-block">
               Quick Links
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gold rounded-full" aria-hidden="true" />
             </h3>
-            <ul className="space-y-3 mt-2">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.id}>
                   <a
@@ -106,12 +106,12 @@ export default function Footer() {
           </nav>
 
           {/* Column 3: Contact Info */}
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col h-full lg:col-span-5">
             <h3 className="font-poppins font-bold text-base text-white mb-5 relative inline-block">
               Contact Info
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gold rounded-full" aria-hidden="true" />
             </h3>
-            <ul className="space-y-4 mt-2">
+            <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone size={15} className="text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <div>
