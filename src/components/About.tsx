@@ -60,7 +60,7 @@ export default function About() {
       <div className="site-container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Text */}
-          <div className="max-w-prose">
+          <div>
             <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-3">
               Who We Are
             </p>

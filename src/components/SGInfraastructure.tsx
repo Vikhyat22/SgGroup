@@ -68,7 +68,7 @@ export default function SGInfraastructure() {
             src="https://static.wixstatic.com/media/c837a6_a656204e75b84246a3f517833decf462~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-157284152.jpg"
             alt="SG Infraastructure construction and civil engineering projects in Pune, India"
             fill
-            sizes="(max-width: 1800px) 94vw, 1800px"
+            sizes="(max-width: 1400px) 100vw, 1400px"
             className="object-cover"
           />
         </div>
