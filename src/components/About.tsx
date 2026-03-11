@@ -57,7 +57,7 @@ export default function About() {
       }`}
       aria-label="About SG Group"
     >
-      <div className="mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-32">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Text */}
           <div>

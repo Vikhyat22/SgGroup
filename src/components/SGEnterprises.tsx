@@ -43,7 +43,7 @@ export default function SGEnterprises() {
       }`}
       aria-label="SG Enterprises Services"
     >
-      <div className="mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 2xl:px-32">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-3">
