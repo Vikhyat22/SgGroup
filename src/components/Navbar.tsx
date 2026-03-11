@@ -42,8 +42,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100'
-          : 'bg-white/90 backdrop-blur-sm'
+          ? 'bg-charcoal/95 backdrop-blur-md shadow-lg border-b border-gold/30'
+          : 'bg-transparent'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,32 +51,23 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => handleScrollTo('home')}
-            className="flex items-center gap-3 group"
+            className="flex items-center group"
             aria-label="SG Group - Home"
           >
-            {/* Logo */}
             <img src="/logo.png" alt="SG Group Logo" className="h-10 w-auto flex-shrink-0" />
-            <div className="flex flex-col leading-tight">
-              <span className="font-poppins font-bold text-xl text-charcoal tracking-wide">
-                SG GROUP
-              </span>
-              <span className="text-[10px] text-medium-gray tracking-widest uppercase font-inter hidden sm:block">
-                Legacy of Excellence
-              </span>
-            </div>
           </button>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => handleScrollTo('home')}
-              className="font-inter font-medium text-charcoal hover:text-gold transition-colors duration-200"
+              className="font-inter font-medium text-white hover:text-gold transition-colors duration-200"
             >
               Home
             </button>
             <button
               onClick={() => handleScrollTo('about')}
-              className="font-inter font-medium text-charcoal hover:text-gold transition-colors duration-200"
+              className="font-inter font-medium text-white hover:text-gold transition-colors duration-200"
             >
               About
             </button>
@@ -85,7 +76,7 @@ export default function Navbar() {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setServicesOpen((v) => !v)}
-                className="flex items-center gap-1 font-inter font-medium text-charcoal hover:text-gold transition-colors duration-200"
+                className="flex items-center gap-1 font-inter font-medium text-white hover:text-gold transition-colors duration-200"
                 aria-expanded={servicesOpen}
                 aria-haspopup="true"
               >
@@ -97,18 +88,18 @@ export default function Navbar() {
               </button>
 
               {servicesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-charcoal rounded-xl shadow-xl border border-white/10 overflow-hidden z-50">
                   <div className="py-2">
                     <button
                       onClick={() => handleScrollTo('sg-infrastructure')}
-                      className="w-full text-left px-5 py-3 font-inter text-sm text-charcoal hover:bg-gold/10 hover:text-charcoal transition-colors duration-150 flex items-center gap-2"
+                      className="w-full text-left px-5 py-3 font-inter text-sm text-white hover:bg-gold/10 hover:text-gold transition-colors duration-150 flex items-center gap-2"
                     >
                       <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
                       SG Infrastructure
                     </button>
                     <button
                       onClick={() => handleScrollTo('sg-enterprises')}
-                      className="w-full text-left px-5 py-3 font-inter text-sm text-charcoal hover:bg-gold/10 hover:text-charcoal transition-colors duration-150 flex items-center gap-2"
+                      className="w-full text-left px-5 py-3 font-inter text-sm text-white hover:bg-gold/10 hover:text-gold transition-colors duration-150 flex items-center gap-2"
                     >
                       <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
                       SG Enterprises
@@ -120,7 +111,7 @@ export default function Navbar() {
 
             <button
               onClick={() => handleScrollTo('contact')}
-              className="font-inter font-medium text-charcoal hover:text-gold transition-colors duration-200"
+              className="font-inter font-medium text-white hover:text-gold transition-colors duration-200"
             >
               Contact
             </button>
@@ -136,7 +127,7 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileMenuOpen((v) => !v)}
-            className="md:hidden p-2 rounded-lg text-charcoal hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -147,17 +138,17 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg animate-slide-in">
+        <div className="md:hidden bg-charcoal border-t border-white/10 shadow-lg animate-slide-in">
           <div className="px-4 py-4 flex flex-col gap-1">
             <button
               onClick={() => handleScrollTo('home')}
-              className="text-left px-4 py-3 font-inter font-medium text-charcoal hover:bg-gold/10 rounded-lg transition-colors"
+              className="text-left px-4 py-3 font-inter font-medium text-white hover:bg-gold/10 rounded-lg transition-colors"
             >
               Home
             </button>
             <button
               onClick={() => handleScrollTo('about')}
-              className="text-left px-4 py-3 font-inter font-medium text-charcoal hover:bg-gold/10 rounded-lg transition-colors"
+              className="text-left px-4 py-3 font-inter font-medium text-white hover:bg-gold/10 rounded-lg transition-colors"
             >
               About
             </button>
@@ -166,7 +157,7 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setMobileServicesOpen((v) => !v)}
-                className="w-full text-left px-4 py-3 font-inter font-medium text-charcoal hover:bg-gold/10 rounded-lg transition-colors flex items-center justify-between"
+                className="w-full text-left px-4 py-3 font-inter font-medium text-white hover:bg-gold/10 rounded-lg transition-colors flex items-center justify-between"
               >
                 Services
                 <ChevronDown
@@ -175,17 +166,17 @@ export default function Navbar() {
                 />
               </button>
               {mobileServicesOpen && (
-                <div className="ml-4 border-l-2 border-gold/30 pl-4 flex flex-col gap-1">
+                <div className="ml-4 border-l-2 border-gold/20 pl-4 flex flex-col gap-1">
                   <button
                     onClick={() => handleScrollTo('sg-infrastructure')}
-                    className="text-left px-4 py-2.5 font-inter text-sm text-charcoal hover:bg-gold/10 rounded-lg transition-colors flex items-center gap-2"
+                    className="text-left px-4 py-2.5 font-inter text-sm text-white hover:bg-gold/10 rounded-lg transition-colors flex items-center gap-2"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
                     SG Infrastructure
                   </button>
                   <button
                     onClick={() => handleScrollTo('sg-enterprises')}
-                    className="text-left px-4 py-2.5 font-inter text-sm text-charcoal hover:bg-gold/10 rounded-lg transition-colors flex items-center gap-2"
+                    className="text-left px-4 py-2.5 font-inter text-sm text-white hover:bg-gold/10 rounded-lg transition-colors flex items-center gap-2"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
                     SG Enterprises
@@ -196,7 +187,7 @@ export default function Navbar() {
 
             <button
               onClick={() => handleScrollTo('contact')}
-              className="text-left px-4 py-3 font-inter font-medium text-charcoal hover:bg-gold/10 rounded-lg transition-colors"
+              className="text-left px-4 py-3 font-inter font-medium text-white hover:bg-gold/10 rounded-lg transition-colors"
             >
               Contact
             </button>

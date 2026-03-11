@@ -63,7 +63,7 @@ export default function SGInfrastructure() {
         {/* Banner Image */}
         <div className="mb-12 relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
           <Image
-            src="https://static.wixstatic.com/media/c837a6_a656204e75b84246a3f517833decf462~mv2.jpg/v1/fill/w_480,h_320,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-157284152.jpg"
+            src="https://static.wixstatic.com/media/c837a6_a656204e75b84246a3f517833decf462~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/GettyImages-157284152.jpg"
             alt="SG Infrastructure"
             fill
             className="object-cover"
