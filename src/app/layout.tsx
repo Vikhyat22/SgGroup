@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.sggroup.info'),
-  title: 'SG Group – Legacy of Excellence, Empire of Vision',
+  title: 'SG Group',
   description:
     'SG Group is a diversified conglomerate with two powerful divisions: SG Infraastructure (Construction, Civil, Electric, Mechanical Works) and SG Enterprises (MRO Supplies, Packaging, Safety Gear, ESD Products).',
   keywords: 'SG Group, SG Infraastructure, SG Enterprises, construction, civil works, electric works, mechanical works, earth movers, builders developers, MRO supplies, packaging material, safety gear PPE, ESD products, industrial hardware, industrial warehouse, Pune, Maharashtra, India',

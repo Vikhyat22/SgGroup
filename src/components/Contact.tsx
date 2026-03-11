@@ -8,6 +8,8 @@ export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [form, setForm] = useState({
     name: '',
@@ -45,7 +47,16 @@ export default function Contact() {
     return newErrors
   }
 
-  const handleSubmit = (e: FormEvent) => {
+  const getAccessKey = (subject: string) => {
+    const keys: Record<string, string | undefined> = {
+      General: process.env.NEXT_PUBLIC_WEB3FORMS_KEY_GENERAL,
+      Infraastructure: process.env.NEXT_PUBLIC_WEB3FORMS_KEY_INFRAASTRUCTURE,
+      Enterprises: process.env.NEXT_PUBLIC_WEB3FORMS_KEY_ENTERPRISES,
+    }
+    return keys[subject] || keys.General
+  }
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (form.website) return
     const newErrors = validate()
@@ -56,8 +67,42 @@ export default function Contact() {
       return
     }
     setErrors({})
-    setSubmitted(true)
-    setTimeout(() => successRef.current?.focus(), 100)
+    setSubmitError('')
+    setSubmitting(true)
+
+    try {
+      const accessKey = getAccessKey(form.subject)
+      if (!accessKey) {
+        setSubmitError('Contact form is not configured yet.')
+        return
+      }
+
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New Enquiry — ${form.subject === 'General' ? 'SG Group' : `SG ${form.subject}`}`,
+          from_name: 'SG Group Website',
+          name: form.name,
+          email: form.email,
+          phone: form.phone || 'Not provided',
+          division: form.subject,
+          message: form.message,
+        }),
+      })
+      const data = await res.json()
+      if (!data.success) {
+        setSubmitError('Failed to send message. Please try again.')
+        return
+      }
+      setSubmitted(true)
+      setTimeout(() => successRef.current?.focus(), 100)
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const handleChange = (
@@ -269,12 +314,31 @@ export default function Contact() {
                   />
                 </div>
 
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm text-red-600 font-inter" role="alert">
+                    {submitError}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-gold hover:bg-gold-dark text-charcoal font-poppins font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5 active:translate-y-0"
+                  disabled={submitting}
+                  className="w-full bg-gold hover:bg-gold-dark text-charcoal font-poppins font-semibold py-4 px-8 rounded-xl flex items-center justify-center gap-2 transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
                 >
-                  <Send size={18} aria-hidden="true" />
-                  Send Message
+                  {submitting ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={18} aria-hidden="true" />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             )}
@@ -339,14 +403,14 @@ export default function Contact() {
             {/* Google Maps Embed */}
             <div className="rounded-2xl overflow-hidden border border-gray-100 flex-1 min-h-[250px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.487453580469!2d73.8532813!3d18.5203539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf4c9f02a87b%3A0x1f35e9bc1f85fe5a!2sAaple%20Ghar%20Society%2C%20Pune%2C%20Maharashtra%20411014!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.5!2d73.9478902!3d18.5652112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3e004468b6d%3A0xf3f2e8d347d33149!2sGurukul%20Complex%20Aple%20Ghar%20Society%20Lane%2013!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '250px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="SG Group Office Location - Aaple Ghar Society, Pune"
+                title="SG Group Office Location - Gurukul Complex, Aple Ghar Society Lane 13, Pune"
                 className="w-full h-full"
               />
             </div>
