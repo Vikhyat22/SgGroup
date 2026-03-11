@@ -103,7 +103,7 @@ export default function Navbar() {
             : 'bg-gradient-to-b from-charcoal/70 to-transparent backdrop-blur-[2px]'
         }`}
       >
-      <nav className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16" aria-label="Main navigation">
+      <nav className="site-container" aria-label="Main navigation">
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <button

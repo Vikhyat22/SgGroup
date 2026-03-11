@@ -27,11 +27,15 @@ export default function Footer() {
       {/* Gold accent line */}
       <div className="h-1 w-full bg-gold" aria-hidden="true" />
 
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="site-container py-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
           {/* Column 1: Brand */}
-          <div>
-            <div className="mb-5">
+          <div className="flex flex-col h-full">
+            <h3 className="font-poppins font-bold text-base text-white mb-5 relative inline-block">
+              SG Group
+              <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gold rounded-full" aria-hidden="true" />
+            </h3>
+            <div className="mb-4 mt-1">
               <Image src="/logo.png" alt="SG Group Logo" width={120} height={48} className="h-10 md:h-12 w-auto" />
             </div>
             <p className="font-poppins font-medium text-gold text-sm italic mb-4">
@@ -74,7 +78,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <nav aria-label="Quick links">
+          <nav aria-label="Quick links" className="flex flex-col h-full">
             <h3 className="font-poppins font-bold text-base text-white mb-5 relative inline-block">
               Quick Links
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gold rounded-full" aria-hidden="true" />
@@ -102,7 +106,7 @@ export default function Footer() {
           </nav>
 
           {/* Column 3: Contact Info */}
-          <div>
+          <div className="flex flex-col h-full">
             <h3 className="font-poppins font-bold text-base text-white mb-5 relative inline-block">
               Contact Info
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gold rounded-full" aria-hidden="true" />
@@ -161,7 +165,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="site-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-inter text-white/40 text-sm text-center sm:text-left">
             &copy; {year} SG Group. All Rights Reserved.
           </p>
