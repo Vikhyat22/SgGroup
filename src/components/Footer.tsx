@@ -161,28 +161,24 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="site-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-inter text-white/40 text-sm text-center sm:text-left">
-            &copy; {year} SG Group. All Rights Reserved.
-          </p>
-          <div className="flex items-center gap-3 text-center sm:text-right">
-            <Link
-              href="/privacy-policy"
-              className="font-inter text-white/40 hover:text-gold text-xs transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <span className="text-white/20">&bull;</span>
-            <p className="font-inter text-white/30 text-xs">
-              SG Infraastructure &bull; SG Enterprises
+        <div className="site-container py-5 flex flex-col items-center gap-3">
+          <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="font-inter text-white/40 text-sm text-center sm:text-left">
+              &copy; {year} SG Group. All Rights Reserved.
             </p>
+            <div className="flex items-center gap-3 text-center sm:text-right">
+              <Link
+                href="/privacy-policy"
+                className="font-inter text-white/40 hover:text-gold text-xs transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-white/20">&bull;</span>
+              <p className="font-inter text-white/30 text-xs">
+                SG Infraastructure &bull; SG Enterprises
+              </p>
+            </div>
           </div>
-        </div>
-      </div>
-
-      {/* Developer Credit */}
-      <div className="border-t border-white/5">
-        <div className="text-center py-4">
           <span className="font-inter text-white/30 text-xs tracking-wide">
             Crafted with{' '}
             <span className="text-gold text-xs">&#x2764;</span>
