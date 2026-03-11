@@ -31,11 +31,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Column 1: Brand */}
           <div className="flex flex-col h-full lg:col-span-4">
-            <h3 className="font-poppins font-bold text-base text-white mb-5 relative inline-block">
-              SG Group
-              <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-gold rounded-full" aria-hidden="true" />
-            </h3>
-            <div className="mb-4 mt-1">
+            <div className="mb-5">
               <Image src="/logo.png" alt="SG Group Logo" width={120} height={48} className="h-10 md:h-12 w-auto" />
             </div>
             <p className="font-poppins font-medium text-gold text-sm italic mb-4">
