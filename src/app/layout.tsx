@@ -77,7 +77,7 @@ const jsonLd = {
     'SG Group is a diversified conglomerate with two powerful divisions: SG Infraastructure and SG Enterprises.',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '201, Gurukul Apartment, Aaple Ghar Society',
+    streetAddress: '201, Gurukul Complex, Aaple Ghar Society',
     addressLocality: 'Pune',
     addressRegion: 'Maharashtra',
     postalCode: '411014',

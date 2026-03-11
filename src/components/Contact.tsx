@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, FormEvent } from 'react'
-import { Phone, Mail, MapPin, Send, CheckCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, Send, CheckCircle, MessageCircle } from 'lucide-react'
 import { COMPANY } from '@/lib/constants'
 
 export default function Contact() {
@@ -362,11 +362,27 @@ export default function Contact() {
                   >
                     +91 {COMPANY.phone}
                   </a>
-                  <p className="font-inter text-sm text-medium-gray mt-0.5">
-                    {COMPANY.contactPerson}
-                  </p>
                 </div>
               </div>
+
+              <a
+                href={`https://wa.me/91${COMPANY.phone}?text=Hi%20SG%20Group%2C%20I%20would%20like%20to%20enquire%20about%20your%20services.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 bg-green-50 rounded-2xl p-5 border border-green-100 hover:border-green-300 transition-colors group"
+              >
+                <div className="w-11 h-11 rounded-xl bg-green-500/10 group-hover:bg-green-500/20 flex items-center justify-center flex-shrink-0 transition-colors">
+                  <MessageCircle size={20} className="text-green-600" aria-hidden="true" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="font-inter text-xs text-medium-gray uppercase tracking-wider mb-1">
+                    WhatsApp
+                  </p>
+                  <p className="font-poppins font-semibold text-charcoal group-hover:text-green-600 transition-colors text-base">
+                    Chat with us
+                  </p>
+                </div>
+              </a>
 
               <div className="flex items-start gap-4 bg-light-gray rounded-2xl p-5 border border-gray-100">
                 <div className="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">

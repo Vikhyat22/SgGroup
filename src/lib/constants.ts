@@ -15,8 +15,7 @@ export const COMPANY = {
   phone: '9637261513',
   email: 'connect.sggroup@gmail.com',
   website: 'www.sggroup.info',
-  address: '201, Gurukul Apartment, Aaple Ghar Society, Pune city, State Maharashtra 411014',
-  contactPerson: 'Prathamesh Gaikwad',
+  address: '201, Gurukul Complex, Aaple Ghar Society, Pune, Maharashtra 411014',
 } as const;
 
 // SG Infraastructure

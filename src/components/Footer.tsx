@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Globe, Instagram } from 'lucide-react'
+import { Phone, Mail, MapPin, Globe, Instagram, MessageCircle } from 'lucide-react'
 import { COMPANY, INFRASTRUCTURE, ENTERPRISES } from '@/lib/constants'
 
 export default function Footer() {
@@ -42,29 +42,34 @@ export default function Footer() {
               solutions across India.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3">
-              <div className="flex items-center gap-2">
-                <Globe size={14} className="text-gold" aria-hidden="true" />
-                <a
-                  href={`https://${COMPANY.website}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-inter text-white/60 hover:text-gold text-sm transition-colors"
-                >
-                  {COMPANY.website}
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Instagram size={14} className="text-gold" aria-hidden="true" />
-                <a
-                  href="https://www.instagram.com/sg_group_official"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-inter text-white/60 hover:text-gold text-sm transition-colors"
-                >
-                  @sg_group_official
-                </a>
-              </div>
+            <div className="mt-6 flex items-center gap-3">
+              <a
+                href={`https://${COMPANY.website}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-gold/20 flex items-center justify-center transition-colors group"
+                aria-label="Website"
+              >
+                <Globe size={16} className="text-white/50 group-hover:text-gold transition-colors" />
+              </a>
+              <a
+                href="https://www.instagram.com/sg_group_official"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-gold/20 flex items-center justify-center transition-colors group"
+                aria-label="Instagram"
+              >
+                <Instagram size={16} className="text-white/50 group-hover:text-gold transition-colors" />
+              </a>
+              <a
+                href={`https://wa.me/91${COMPANY.phone}?text=Hi%20SG%20Group%2C%20I%20would%20like%20to%20enquire%20about%20your%20services.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-gold/20 flex items-center justify-center transition-colors group"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle size={16} className="text-white/50 group-hover:text-gold transition-colors" />
+              </a>
             </div>
           </div>
 
@@ -112,30 +117,35 @@ export default function Footer() {
                   >
                     +91 {COMPANY.phone}
                   </a>
-                  <p className="font-inter text-white/40 text-xs mt-0.5">{COMPANY.contactPerson}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={15} className="text-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <div className="space-y-1">
+                <div className="space-y-2">
                   <a
                     href={`mailto:${COMPANY.email}`}
                     className="block font-inter text-white/70 hover:text-gold text-sm transition-colors"
                   >
                     {COMPANY.email}
                   </a>
-                  <a
-                    href={`mailto:${INFRASTRUCTURE.email}`}
-                    className="block font-inter text-white/50 hover:text-gold text-xs transition-colors"
-                  >
-                    {INFRASTRUCTURE.email}
-                  </a>
-                  <a
-                    href={`mailto:${ENTERPRISES.email}`}
-                    className="block font-inter text-white/50 hover:text-gold text-xs transition-colors"
-                  >
-                    {ENTERPRISES.email}
-                  </a>
+                  <div>
+                    <p className="font-inter text-white/30 text-[10px] uppercase tracking-wider">Infraastructure</p>
+                    <a
+                      href={`mailto:${INFRASTRUCTURE.email}`}
+                      className="block font-inter text-white/50 hover:text-gold text-xs transition-colors"
+                    >
+                      {INFRASTRUCTURE.email}
+                    </a>
+                  </div>
+                  <div>
+                    <p className="font-inter text-white/30 text-[10px] uppercase tracking-wider">Enterprises</p>
+                    <a
+                      href={`mailto:${ENTERPRISES.email}`}
+                      className="block font-inter text-white/50 hover:text-gold text-xs transition-colors"
+                    >
+                      {ENTERPRISES.email}
+                    </a>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -168,6 +178,25 @@ export default function Footer() {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Developer Credit */}
+      <div className="border-t border-white/5">
+        <p className="text-center py-4 font-inter text-white/25 text-xs tracking-wide flex items-center justify-center gap-1.5">
+          <span className="inline-block w-3 h-[1px] bg-white/10" aria-hidden="true" />
+          Crafted with
+          <span className="text-gold text-[10px] leading-none" aria-hidden="true">&#9829;</span>
+          by
+          <a
+            href="https://www.linkedin.com/in/vikhyat-gupta-401978257"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/50 hover:text-gold font-medium transition-colors duration-300 border-b border-dotted border-white/10 hover:border-gold/50 pb-[1px]"
+          >
+            Vikhyat Gupta
+          </a>
+          <span className="inline-block w-3 h-[1px] bg-white/10" aria-hidden="true" />
+        </p>
       </div>
     </footer>
   )
