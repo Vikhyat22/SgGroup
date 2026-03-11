@@ -47,14 +47,14 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-16 md:h-20 overflow-visible">
           {/* Logo */}
           <button
             onClick={() => handleScrollTo('home')}
             className="flex items-center group"
             aria-label="SG Group - Home"
           >
-            <img src="/logo.png" alt="SG Group Logo" className="h-14 md:h-16 w-auto flex-shrink-0" />
+            <img src="/logo.png" alt="SG Group Logo" className="h-16 md:h-20 w-auto flex-shrink-0" />
           </button>
 
           {/* Desktop Nav */}
