@@ -50,7 +50,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-charcoal/90 backdrop-blur-md shadow-lg shadow-black/10 border-b border-gold/20'
+          ? 'bg-charcoal backdrop-blur-md shadow-lg shadow-black/10 border-b border-gold/20'
           : 'bg-gradient-to-b from-charcoal/70 to-transparent backdrop-blur-[2px]'
       }`}
     >
