@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { Wrench, Package, Shield, Cpu, Mail } from 'lucide-react'
+import { Wrench, Package, Shield, Cpu, Hammer, Warehouse, Mail } from 'lucide-react'
 import { ENTERPRISES } from '@/lib/constants'
 
 const ICONS = {
@@ -10,6 +10,8 @@ const ICONS = {
   package: Package,
   shield: Shield,
   cpu: Cpu,
+  hammer: Hammer,
+  warehouse: Warehouse,
 }
 
 type IconKey = keyof typeof ICONS
@@ -63,16 +65,16 @@ export default function SGEnterprises() {
         <div className="mb-12 grid sm:grid-cols-2 gap-6">
           <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="https://static.wixstatic.com/media/c837a6_47223d00a4af4c01bde4b5a6b06ea3ad~mv2.jpg/v1/fill/w_1920,h_2224,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_47223d00a4af4c01bde4b5a6b06ea3ad~mv2.jpg"
-              alt="SG Enterprises"
+              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&q=80&auto=format&fit=crop"
+              alt="Industrial warehouse with organized inventory shelves"
               fill
               className="object-cover"
             />
           </div>
           <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="https://static.wixstatic.com/media/c837a6_069649aec1074db192a4cd263d81a897~mv2.jpg/v1/fill/w_1920,h_2076,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_069649aec1074db192a4cd263d81a897~mv2.jpg"
-              alt="SG Enterprises Products"
+              src="https://www.thechecker.net/hubfs/PPE.jpg"
+              alt="PPE safety gear and protective equipment"
               fill
               className="object-cover"
             />
@@ -80,7 +82,7 @@ export default function SGEnterprises() {
         </div>
 
         {/* Service Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {ENTERPRISES.services.map((service, index) => {
             const Icon = ICONS[service.icon as IconKey] ?? Wrench
             return (

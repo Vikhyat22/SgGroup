@@ -84,6 +84,16 @@ export const ENTERPRISES = {
       description: 'Electrostatic discharge protection and non-ESD products for electronics manufacturing and sensitive equipment handling environments.',
       icon: 'cpu',
     },
+    {
+      title: 'Industrial Hardware',
+      description: 'High-quality industrial hardware including fasteners, fittings, tools, and components sourced from trusted manufacturers for heavy-duty applications.',
+      icon: 'hammer',
+    },
+    {
+      title: 'Industrial Warehouse',
+      description: 'End-to-end warehouse solutions including storage infrastructure, racking systems, and facility management for efficient industrial operations.',
+      icon: 'warehouse',
+    },
   ],
 } as const;
 

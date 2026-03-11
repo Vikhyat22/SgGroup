@@ -11,6 +11,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'video.wixstatic.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.thechecker.net',
+      },
     ],
   },
 };
