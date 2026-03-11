@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { Building2, HardHat, Zap, Settings, Mail } from 'lucide-react'
+import { Building2, HardHat, Zap, Settings, Truck, Landmark, Mail } from 'lucide-react'
 import { INFRASTRUCTURE } from '@/lib/constants'
 
 const ICONS = {
@@ -10,6 +10,8 @@ const ICONS = {
   'hard-hat': HardHat,
   zap: Zap,
   settings: Settings,
+  truck: Truck,
+  landmark: Landmark,
 }
 
 type IconKey = keyof typeof ICONS
@@ -71,7 +73,7 @@ export default function SGInfraastructure() {
         </div>
 
         {/* Service Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {INFRASTRUCTURE.services.map((service, index) => {
             const Icon = ICONS[service.icon as IconKey] ?? Building2
             return (

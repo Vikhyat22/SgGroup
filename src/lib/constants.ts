@@ -31,6 +31,16 @@ export const INFRASTRUCTURE = {
       icon: 'building',
     },
     {
+      title: 'Builders & Developers',
+      description: 'Full-cycle real estate development from land acquisition and planning to design, construction, and delivery of residential and commercial properties.',
+      icon: 'landmark',
+    },
+    {
+      title: 'Earth Movers',
+      description: 'Heavy earthmoving and excavation services including grading, trenching, land clearing, and site preparation for projects of any scale.',
+      icon: 'truck',
+    },
+    {
       title: 'Civil Works',
       description: 'Comprehensive civil engineering solutions including roads, bridges, drainage systems, and structural foundations built to last.',
       icon: 'hard-hat',

@@ -2,48 +2,33 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { STATS } from '@/lib/constants'
+import { Target, Eye, Compass } from 'lucide-react'
 
-function CounterItem({
-  value,
-  suffix,
-  label,
-  isVisible,
-}: {
-  value: number
-  suffix: string
-  label: string
-  isVisible: boolean
-}) {
-  const [count, setCount] = useState(0)
+const PILLARS = [
+  {
+    icon: Target,
+    keyword: 'PRECISION',
+    heading: 'We Measure Twice',
+    description:
+      'Every project is engineered with meticulous planning and zero-tolerance for compromise — because details define legacies.',
+  },
+  {
+    icon: Eye,
+    keyword: 'VISION',
+    heading: 'We See Further',
+    description:
+      'We don\'t just meet today\'s needs. We anticipate tomorrow\'s challenges and build solutions that stand the test of time.',
+  },
+  {
+    icon: Compass,
+    keyword: 'INTEGRITY',
+    heading: 'We Stand Behind It',
+    description:
+      'Transparent processes, honest timelines, and a handshake that means something — trust is the foundation we never cut corners on.',
+  },
+]
 
-  useEffect(() => {
-    if (!isVisible) return
-    let start = 0
-    const duration = 2000
-    const step = Math.ceil(value / (duration / 16))
-    const timer = setInterval(() => {
-      start += step
-      if (start >= value) {
-        setCount(value)
-        clearInterval(timer)
-      } else {
-        setCount(start)
-      }
-    }, 16)
-    return () => clearInterval(timer)
-  }, [isVisible, value])
-
-  return (
-    <div className="text-center">
-      <div className="font-poppins font-bold text-4xl sm:text-5xl text-charcoal mb-2">
-        {count}
-        <span className="text-gold">{suffix}</span>
-      </div>
-      <div className="font-inter text-medium-gray text-sm sm:text-base">{label}</div>
-    </div>
-  )
-}
+const ROTATING_WORDS = ['Skylines', 'Futures', 'Trust', 'Legacies']
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -144,17 +129,74 @@ export default function About() {
           </div>
         </div>
 
-        {/* Stats Row */}
-        <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 bg-light-gray rounded-2xl p-8 sm:p-10">
-          {STATS.map((stat) => (
-            <CounterItem
-              key={stat.label}
-              value={stat.value}
-              suffix={stat.suffix}
-              label={stat.label}
-              isVisible={isVisible}
-            />
-          ))}
+        {/* The SG Promise */}
+        <div className="mt-20">
+          {/* Rotating headline */}
+          <div className="text-center mb-14">
+            <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-4">
+              The SG Promise
+            </p>
+            <h3 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-5xl text-charcoal">
+              We Don&apos;t Just Build.{' '}
+              <span className="relative inline-block text-gold">
+                <span className="invisible">Legacies.</span>
+                {ROTATING_WORDS.map((word) => (
+                  <span key={word} className="rotating-word">
+                    {word}.
+                  </span>
+                ))}
+              </span>
+            </h3>
+          </div>
+
+          {/* Pillar Cards */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {PILLARS.map((pillar, index) => {
+              const Icon = pillar.icon
+              return (
+                <div
+                  key={pillar.keyword}
+                  className="glow-border group bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-2xl hover:shadow-gold/10 hover:-translate-y-2 transition-all duration-500 cursor-default"
+                  style={{
+                    transitionDelay: isVisible ? `${index * 150}ms` : '0ms',
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? undefined : 'translateY(30px)',
+                  }}
+                >
+                  {/* Icon + Keyword */}
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-12 h-12 rounded-xl bg-charcoal group-hover:bg-gold flex items-center justify-center transition-colors duration-300">
+                      <Icon
+                        size={22}
+                        className="text-gold group-hover:text-charcoal transition-colors duration-300"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <span className="font-poppins font-bold text-xs tracking-[0.25em] text-gold/60 group-hover:text-gold transition-colors duration-300 uppercase">
+                      {pillar.keyword}
+                    </span>
+                  </div>
+
+                  {/* Heading */}
+                  <h4 className="font-poppins font-bold text-xl text-charcoal mb-3">
+                    {pillar.heading}
+                  </h4>
+
+                  {/* Description */}
+                  <p className="font-inter text-medium-gray text-sm leading-relaxed">
+                    {pillar.description}
+                  </p>
+
+                  {/* Animated bottom line */}
+                  <div
+                    className="mt-6 h-0.5 w-0 group-hover:w-full bg-gold rounded-full transition-all duration-500"
+                    aria-hidden="true"
+                  />
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
