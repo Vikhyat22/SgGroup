@@ -124,7 +124,7 @@ export default function Contact() {
       }`}
       aria-label="Contact SG Group"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="font-inter text-gold font-semibold text-sm uppercase tracking-widest mb-3">
